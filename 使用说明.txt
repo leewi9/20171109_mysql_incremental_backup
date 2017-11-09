@@ -1,4 +1,17 @@
+＃＃＃＃＃＃＃＃＃＃ 参考 ＃＃＃＃＃＃＃＃＃＃
 https://www.digitalocean.com/community/tutorials/how-to-configure-mysql-backups-with-percona-xtrabackup-on-ubuntu-16-04
+
+＃＃＃＃＃＃＃＃＃＃ 手动配置 ＃＃＃＃＃＃＃＃＃＃
+
+sudo mkdir -p /data/backups
+cd /data/backups
+git clone https://github.com/leewi9/mysql_incremental_backup.git
+
+cd /data/backups/mysql_incremental_backup
+sudo chmod +x install.sh
+sudo ./install.sh
+
+# 在备份脚本backup-mysql.sh中配置数据库的用户名和密码
 
 ＃＃＃＃＃＃＃＃＃＃ 设置定时任务 ＃＃＃＃＃＃＃＃＃＃
 

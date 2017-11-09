@@ -1,6 +1,3 @@
-sudo mkdir -p /data/backups/mysql_incremental_backup
-cd /data/backups/mysql_incremental_backup
-
 sudo wget https://repo.percona.com/apt/percona-release_0.1-4.$(lsb_release -sc)_all.deb
 sudo dpkg -i percona-release_0.1-4.$(lsb_release -sc)_all.deb
 sudo apt-get update
