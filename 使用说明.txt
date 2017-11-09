@@ -1,0 +1,16 @@
+https://www.digitalocean.com/community/tutorials/how-to-configure-mysql-backups-with-percona-xtrabackup-on-ubuntu-16-04
+
+＃＃＃＃＃＃＃＃＃＃ 设置定时任务 ＃＃＃＃＃＃＃＃＃＃
+
+# cron每小时运行一次
+sudo crontab -e
+0 */1 * * *  /data/backups/mysql/backup-mysql.sh
+
+＃＃＃＃＃＃＃＃＃＃ 还原 ＃＃＃＃＃＃＃＃＃＃
+
+＃ 将脚本extract-mysql.sh拷贝至要还原的日期对应的文件夹，对文件进行解密，解密后的文件放在当前文件夹下的restore文件夹
+sudo extract-mysql.sh *.xbstream
+
+# 将脚本prepare-mysql.sh拷贝至restore文件夹，运行以准备数据
+# To do so, you must be in the ｀restore｀ directory that contains the full- and any incremental- backups. The script will apply the changes from any incremental- directories onto the full- backup directory. Afterwards, it will apply the logs to create a consistent dataset that MySQL can use.
+sudo prepare-mysql.sh
