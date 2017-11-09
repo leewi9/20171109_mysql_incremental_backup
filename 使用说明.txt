@@ -27,3 +27,10 @@ sudo extract-mysql.sh *.xbstream
 # 将脚本prepare-mysql.sh拷贝至restore文件夹，运行以准备数据
 # To do so, you must be in the ｀restore｀ directory that contains the full- and any incremental- backups. The script will apply the changes from any incremental- directories onto the full- backup directory. Afterwards, it will apply the logs to create a consistent dataset that MySQL can use.
 sudo prepare-mysql.sh
+
+
+＃＃＃＃＃＃＃＃＃＃＃ 注意点 ＃＃＃＃＃＃＃＃＃＃
+--no-lock参数
+
+在备份过程中，把INNODB数据文件备份完成后，会锁住整个库，并开始复制MYISAM等非事务引擎的数据和.frm；
+所以如果你拥有比较多的MYISAM表，锁库的时候会持续很长。如果是在主库上运行，千万注意。

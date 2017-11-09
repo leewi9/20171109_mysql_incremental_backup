@@ -1,7 +1,7 @@
 #!/bin/bash
 export LC_ALL=C
 
-days_of_backups=7  # Must be less than 7
+days_of_backups=6  # 必须小于等于6
 backup_owner="root"
 
 mysql_user="root"
@@ -55,7 +55,6 @@ set_options () {
         "--parallel=${processors}"
         "--compress-threads=${processors}"
         "--encrypt-threads=${processors}"
-        "--slave-info"
         "--no-lock"
     )
 
