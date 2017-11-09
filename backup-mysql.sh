@@ -56,6 +56,7 @@ set_options () {
         "--compress-threads=${processors}"
         "--encrypt-threads=${processors}"
         "--slave-info"
+        "--no-lock"
     )
 
     backup_type="full"

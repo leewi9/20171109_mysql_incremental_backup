@@ -5,7 +5,7 @@ https://www.digitalocean.com/community/tutorials/how-to-configure-mysql-backups-
 
 sudo mkdir -p /data/backups
 cd /data/backups
-git clone https://github.com/leewi9/mysql_incremental_backup.git
+sudo git clone https://github.com/leewi9/mysql_incremental_backup.git
 
 cd /data/backups/mysql_incremental_backup
 sudo chmod +x install.sh
@@ -17,9 +17,9 @@ sudo ./install.sh
 
 # cron每小时运行一次
 sudo crontab -e
-0 */1 * * *  /data/backups/mysql_incremental_backup/backup-mysql.sh
+0 */1 * * *  sudo ./data/backups/mysql_incremental_backup/backup-mysql.sh
 
-＃＃＃＃＃＃＃＃＃＃ 还原 ＃＃＃＃＃＃＃＃＃＃
+＃＃＃＃＃＃＃＃＃＃ 还原步骤 ＃＃＃＃＃＃＃＃＃＃
 
 ＃ 将脚本extract-mysql.sh拷贝至要还原的日期对应的文件夹，对文件进行解密，解密后的文件放在当前文件夹下的restore文件夹
 sudo extract-mysql.sh *.xbstream
