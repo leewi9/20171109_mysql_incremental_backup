@@ -4,7 +4,7 @@ https://www.digitalocean.com/community/tutorials/how-to-configure-mysql-backups-
 
 # cron每小时运行一次
 sudo crontab -e
-0 */1 * * *  /data/backups/mysql/backup-mysql.sh
+0 */1 * * *  /data/backups/mysql_incremental_backup/backup-mysql.sh
 
 ＃＃＃＃＃＃＃＃＃＃ 还原 ＃＃＃＃＃＃＃＃＃＃
 

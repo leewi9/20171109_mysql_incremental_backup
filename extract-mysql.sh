@@ -3,7 +3,7 @@
 export LC_ALL=C
 
 backup_owner="root"
-encryption_key_file="/data/backups/mysql/encryption_key"
+encryption_key_file="/data/backups/mysql_incremental_backup/encryption_key"
 
 log_file="extract-progress.log"
 number_of_args="${#}"

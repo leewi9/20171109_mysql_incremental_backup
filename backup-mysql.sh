@@ -5,9 +5,9 @@ days_of_backups=7  # Must be less than 7
 backup_owner="root"
 
 mysql_user="root"
-mysql_user_password="onchain001"
+mysql_user_password=""
 
-parent_dir="/data/backups/mysql"  # 注意结尾不要加/
+parent_dir="/data/backups/mysql_incremental_backup"  # 注意结尾不要加/
 #defaults_file="/etc/mysql/backup.cnf"
 todays_dir="${parent_dir}/$(date +%a)"
 log_file="${todays_dir}/backup-progress.log"
