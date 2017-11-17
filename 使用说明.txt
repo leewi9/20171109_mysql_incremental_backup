@@ -15,7 +15,7 @@ sudo ./install.sh
 
 ＃＃＃＃＃＃＃＃＃＃ 设置定时任务 ＃＃＃＃＃＃＃＃＃＃
 
-# cron每小时运行一次
+# cron每1个小时运行一次
 sudo crontab -e
 0 */1 * * *  sudo /data/backups/mysql_incremental_backup/backup-mysql.sh
 
@@ -30,7 +30,6 @@ sudo prepare-mysql.sh
 
 
 ＃＃＃＃＃＃＃＃＃＃＃ 注意点 ＃＃＃＃＃＃＃＃＃＃
---no-lock参数
-
+必须要加--no-lock参数
 在备份过程中，把INNODB数据文件备份完成后，会锁住整个库，并开始复制MYISAM等非事务引擎的数据和.frm；
 所以如果你拥有比较多的MYISAM表，锁库的时候会持续很长。如果是在主库上运行，千万注意。
