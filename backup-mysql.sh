@@ -91,13 +91,14 @@ sanity_check && set_options && rotate_old && take_backup
 
 # Check success and print message
 if tail -1 "${log_file}" | grep -q "completed OK"; then
-    printf "Backup successful!\n"
-    printf "Backup created at %s/%s-%s.xbstream\n" "${todays_dir}" "${backup_type}" "${now}"
+    printf "\n#############################\n" >> "${log_file}"
+    printf "Backup successful!\n" >> "${log_file}"
+    printf "Backup created at %s/%s-%s.xbstream\n" "${todays_dir}" "${backup_type}" "${now}" >> "${log_file}"
 else
-    error "Backup failure! Check ${log_file} for more information"
+    printf "\n#############################\n" >> "${log_file}"
+    printf "Backup failure! Check ${log_file} for more information\n" >> "${log_file}"
 fi
-
 #
 end=$(date +%s)
 elapsed=$(expr $end - $begin)
-printf "\n\n本次脚本执行时间共$elapsed秒。\n\n"
+printf "本次脚本执行时间共$elapsed秒。\n#############################\n\n" >> "${log_file}"
